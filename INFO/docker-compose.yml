@@ -1,0 +1,16 @@
+services:
+  api:
+    build:
+      context: ./api
+    ports:
+      - "5000:5000"
+    container_name: resume_api
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "80:80"
+    container_name: resume_frontend
+    depends_on:
+      - api
